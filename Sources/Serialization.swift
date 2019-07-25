@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol Monitorable {
+public protocol Monitorable {
     var monitorValue: Any { get }
 }
 
 extension Monitorable {
-    var monitorValue: Any { return self }
+   public var monitorValue: Any { return self }
 }
 
 extension String: Monitorable {}
@@ -22,13 +22,13 @@ extension CGFloat: Monitorable {}
 extension Double: Monitorable {}
 
 extension Array: Monitorable {
-    var monitorValue: Any {
+    public var monitorValue: Any {
         return self.map { MonitorSerialization.convertValueToDictionary($0) }
     }
 }
 
 extension Dictionary: Monitorable {
-    var monitorValue: Any {
+    public var monitorValue: Any {
         var monitorDict: [String: Any] = [:]
         
         for (key, value) in self {
