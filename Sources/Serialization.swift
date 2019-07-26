@@ -47,9 +47,19 @@ struct MonitorSerialization {
             return v.monitorValue
         }
         
-        let mirror = Mirror(reflecting: value)
+        var mirror = Mirror(reflecting: value)
+        
+        if mirror.displayStyle == .optional {
+            if mirror.children.count == 0 { return nil }
+            let (_, v) = mirror.children.first!
+            mirror = Mirror(reflecting: v)
+        }
+        
         guard mirror.displayStyle == .struct ||
-            mirror.displayStyle == .enum else {
+            mirror.displayStyle == .enum ||
+            mirror.displayStyle == .class
+            
+        else {
                 return String(reflecting: value)
         }
         
