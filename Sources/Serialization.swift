@@ -30,49 +30,49 @@ extension Array: Monitorable {
 extension Dictionary: Monitorable {
     public var monitorValue: Any {
         var monitorDict: [String: Any] = [:]
-        
+
         for (key, value) in self {
             monitorDict["\(key)"] = MonitorSerialization.convertValueToDictionary(value)
         }
-        
+
         return monitorDict
     }
 }
 
 struct MonitorSerialization {
     private init() {}
-    
+
     static func convertValueToDictionary(_ value: Any) -> Any? {
         if let v = value as? Monitorable {
             return v.monitorValue
         }
-        
+
         var mirror = Mirror(reflecting: value)
-        
+
         if mirror.displayStyle == .optional {
             if mirror.children.count == 0 { return nil }
             let (_, v) = mirror.children.first!
             mirror = Mirror(reflecting: v)
         }
-        
+
         guard mirror.displayStyle == .struct ||
             mirror.displayStyle == .enum ||
-            mirror.displayStyle == .class
-            
+            mirror.displayStyle == .class ||
+            mirror.displayStyle == .tuple
         else {
                 return String(reflecting: value)
         }
-        
+
         var result: [String: Any] = [:]
-        
+
         for (key, child) in mirror.children {
             guard let key = key else {
                 continue
             }
-            
+
             result[key] = MonitorSerialization.convertValueToDictionary(child)
         }
-        
+
         return result
     }
 }
