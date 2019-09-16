@@ -18,7 +18,7 @@ public struct Configuration {
         self.host = host
         self.port = port
         self.isSecureConnection = isSecureConnection
-        client = ScClient(url: url.absoluteString)
+        client = ScClient(url: url!.absoluteString)
 
     }
     
@@ -52,12 +52,12 @@ public struct MonitorMiddleware {
             guard let url = configuration.url else {
                 fatalError("不正なURL")
             }
-            client.connect()
+            self.client.connect()
             return { next in
                 return { action in
                     next(action)
-                    queue.isSuspended = !client.socket.isConnected
-                    queue.addOperation(SendActionInfoOperation(state: fetchState()!, action: action, client: client))
+                    queue.isSuspended = !self.client.socket.isConnected
+                    queue.addOperation(SendActionInfoOperation(state: fetchState()!, action: action, client: self.client))
                 }
             }
         }
