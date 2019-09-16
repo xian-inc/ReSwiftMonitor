@@ -13,10 +13,13 @@ public struct Configuration {
     let host: String
     let port: Int
     let isSecureConnection: Bool
+    let client : ScClient!
     public init(host: String = "localhost", port: Int = 8000, isSecureConnection: Bool = false) {
         self.host = host
         self.port = port
         self.isSecureConnection = isSecureConnection
+        client = ScClient(url: url.absoluteString)
+
     }
     
     public var url: URL? {
@@ -49,7 +52,6 @@ public struct MonitorMiddleware {
             guard let url = configuration.url else {
                 fatalError("不正なURL")
             }
-            let client = ScClient(url: url.absoluteString)
             client.connect()
             return { next in
                 return { action in
