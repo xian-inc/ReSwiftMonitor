@@ -13,12 +13,10 @@ public struct Configuration {
     let host: String
     let port: Int
     let isSecureConnection: Bool
-    let client : ScClient!
     public init(host: String = "localhost", port: Int = 8000, isSecureConnection: Bool = false) {
         self.host = host
         self.port = port
         self.isSecureConnection = isSecureConnection
-        client = ScClient(url: url!.absoluteString)
 
     }
     
@@ -42,12 +40,14 @@ public struct Configuration {
 }
 
 public struct MonitorMiddleware {
+    public static var client : ScClient!
     public static func make(configuration: Configuration) -> Middleware<StateType> {
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
         queue.qualityOfService = .default
         queue.isSuspended = true
-        
+        self.client = ScClient(url: configuration.url!.absoluteString)
+
         return { dispatch, fetchState in
             guard let url = configuration.url else {
                 fatalError("不正なURL")
