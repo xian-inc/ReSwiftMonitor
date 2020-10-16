@@ -17,11 +17,8 @@
 		177781C620236B92006D5E0A /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177781C520236B92006D5E0A /* AppState.swift */; };
 		177781C820236CF4006D5E0A /* CounterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177781C720236CF4006D5E0A /* CounterAction.swift */; };
 		177D8EDA2100A53D004DE2C0 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177D8ED72100A53C004DE2C0 /* ReSwift.framework */; };
-		177D8EDE2100A5AA004DE2C0 /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177D8ED82100A53D004DE2C0 /* HandyJSON.framework */; };
 		177D8EDF2100A5AA004DE2C0 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177D8ED72100A53C004DE2C0 /* ReSwift.framework */; };
 		177D8EE02100A5AA004DE2C0 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177D8ED92100A53D004DE2C0 /* Starscream.framework */; };
-		177D8EE22100A747004DE2C0 /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177D8ED82100A53D004DE2C0 /* HandyJSON.framework */; };
-		177D8EE32100A747004DE2C0 /* HandyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 177D8ED82100A53D004DE2C0 /* HandyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		177D8EE52100A748004DE2C0 /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 177D8ED72100A53C004DE2C0 /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		177D8EE62100A748004DE2C0 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177D8ED92100A53D004DE2C0 /* Starscream.framework */; };
 		177D8EE72100A748004DE2C0 /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 177D8ED92100A53D004DE2C0 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -57,7 +54,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				177D8EEA2100A756004DE2C0 /* ReSwiftMonitor.framework in Embed Frameworks */,
-				177D8EE32100A747004DE2C0 /* HandyJSON.framework in Embed Frameworks */,
 				177D8EE72100A748004DE2C0 /* Starscream.framework in Embed Frameworks */,
 				177D8EE52100A748004DE2C0 /* ReSwift.framework in Embed Frameworks */,
 			);
@@ -81,7 +77,6 @@
 		177781C520236B92006D5E0A /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		177781C720236CF4006D5E0A /* CounterAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterAction.swift; sourceTree = "<group>"; };
 		177D8ED72100A53C004DE2C0 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
-		177D8ED82100A53D004DE2C0 /* HandyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HandyJSON.framework; path = Carthage/Build/iOS/HandyJSON.framework; sourceTree = "<group>"; };
 		177D8ED92100A53D004DE2C0 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 		177D8EEE21014B17004DE2C0 /* ScClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScClient.swift; sourceTree = "<group>"; };
 		177D8EF121014B4C004DE2C0 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -100,7 +95,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				177D8EDE2100A5AA004DE2C0 /* HandyJSON.framework in Frameworks */,
 				177D8EDF2100A5AA004DE2C0 /* ReSwift.framework in Frameworks */,
 				177D8EE02100A5AA004DE2C0 /* Starscream.framework in Frameworks */,
 			);
@@ -113,7 +107,6 @@
 				177D8EDA2100A53D004DE2C0 /* ReSwift.framework in Frameworks */,
 				177D8EE92100A756004DE2C0 /* ReSwiftMonitor.framework in Frameworks */,
 				177D8EE62100A748004DE2C0 /* Starscream.framework in Frameworks */,
-				177D8EE22100A747004DE2C0 /* HandyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +202,6 @@
 		6380827EEB58ED91EBC2806D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				177D8ED82100A53D004DE2C0 /* HandyJSON.framework */,
 				177D8ED72100A53C004DE2C0 /* ReSwift.framework */,
 				177D8ED92100A53D004DE2C0 /* Starscream.framework */,
 			);
@@ -505,7 +497,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -537,7 +529,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
