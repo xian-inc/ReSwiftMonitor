@@ -50,7 +50,7 @@ struct MonitorSerialization {
         var mirror = Mirror(reflecting: value)
 
         if mirror.displayStyle == .optional {
-            if mirror.children.count == 0 { return nil }
+            if mirror.children.count == 0 { return "<nil>" }
             let (_, v) = mirror.children.first!
             mirror = Mirror(reflecting: v)
         }
